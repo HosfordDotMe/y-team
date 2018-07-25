@@ -1,25 +1,13 @@
-<h1>Show Place</h1>
+<div class="container">
+  <div class="row">
+    <div class ="col-md-6">
+      <img style="width:100%;" src="<%= @place.image_uri %>" alt="<%= @place.image_uri %>">
+    </div>
+    <div class ="col-md-6">
+      <div id='map' data-place="<%= @place.to_json %>" style="height:100px;">
+        <script src="https://maps.googleapis.com/maps/api/js?key=<%= Rails.application.credentials.gmaps_api_key %>&callback=initMap" type="text/javascript"></script>
+      </div>
+    </div>
+  </div>
+</div>
 
-<p>
-<strong>Name:</strong>
-<%= @place.name %>
-</p>
-
-<p>
-<strong>Lat:</strong>
-<%= @place.lat %>
-</p>
-
-<p>
-<strong>Lng:</strong>
-<%= @place.lng %>
-</p>
-
-<p>
-<strong>Image:</strong>
-<img src="<%= @place.image_uri %>" alt="<%= @place.image_uri %>">
-</p>
-
-
-<div id='map' style="height: 800px" data-place="<%= @place.to_json %>" >></div>
-<script src="https://maps.googleapis.com/maps/api/js?key=<%= Rails.application.credentials.gmaps_api_key %>&callback=initMap" type="text/javascript"></script>

@@ -1,0 +1,12 @@
+<h1>Hello! Welcome to the Near Me!</h1>
+
+<p>Click the button to get your coordinates.</p>
+
+<button id='try-it'>Try It</button>
+
+<p id="demo"></p>
+
+
+
+<div id='map_nearme' style="width:400px;height:400px" data-place="<%= @place.to_json %>" ></div>
+<script src="https://maps.googleapis.com/maps/api/js?key=<%= Rails.application.credentials.gmaps_api_key %>&callback=initMap" type="text/javascript"></script>

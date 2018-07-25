@@ -1,0 +1,28 @@
+<h1>Add New Event</h1>
+<%= form_with scope: :event, url: events_path, local: true do |form| %>
+    
+    <p>
+    <%= form.label :Name %><br>
+    <%= form.text_field :name %>
+    </p>
+
+    <p>
+    <%= form.label :Description %><br>
+    <%= form.text_field :description %>
+    </p>
+
+    <p>
+    <%= form.label :Start %><br>
+    <%= form.text_field :start_time %>
+    </p>
+
+    <p>
+    <%= form.label :End  %><br>
+    <%= form.text_field :end_time %>
+    </p>
+
+    <p>
+    <%= form.submit %>
+  </p>
+  
+<% end %>

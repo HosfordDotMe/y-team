@@ -1,0 +1,27 @@
+<%# Stopping note: need to research "put" %>
+
+<h1>Show Profile</h1>
+
+<%= form_with scope: :profile, url: profiles_path, local: true do |form| %>
+  <p>
+    <%= form.label :first_name %><br>
+    <%= form.text_field :first_name %>
+  </p>
+ 
+  <p>
+    <%= form.label :last_name %><br>
+    <%= form.text_field :last_name%>
+  </p>
+  <p>
+    <%= form.label :location %><br>
+    <%= form.text_field :location %>
+  </p>
+  <p>
+    <%= form.label :image_uri %><br>
+    <%= form.text_field :image_uri %>
+  </p>
+  <img src="<%= @profile.image_uri %>" alt="">
+  <p>
+    <%= form.submit %>
+  </p>
+<% end %>

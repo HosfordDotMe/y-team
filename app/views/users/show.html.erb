@@ -1,0 +1,34 @@
+
+<h1>Listing Users</h1>
+
+
+<table>
+  <% @users.each do |user| %>
+    <tr>
+      <td><%= user.uname %></td>
+      <td><%= user.email %></td>
+    </tr>
+  <% end %>
+</table>
+
+
+<p>
+<strong>Username:</strong>
+<%= @user.uname %>
+</p>
+
+<p>
+<strong>Email:</strong>
+<%= @user.email %>
+</p>
+
+
+////
+
+
+if params[:username] && params[:password]
+   user = User.find_email(params[:email])
+   return redirect_to sign_in_path unless user
+   session[:user_id] = user.id if user.password == params[:password]
+
+   @current_user = User.find(session[:user_id]) id session[:user_id]

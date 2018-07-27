@@ -1,14 +1,26 @@
-<h1>Hello! Welcome to the Near Me!</h1>
+<div class = "container">
+  <div class = "row justify-content-center">
+    <div class = "cold-md-12 mb-3">
+    <h1>Find out what is nearby!</h1>
+    </div>
+  </div>
+  <div class = "row justify-content-center">
+    <div class = "col-md-8 mb-3">
+    <div id='map_nearme' style="height:50vh;" data-places="<%= @place.to_json %>"></div>
+    <script src="https://maps.googleapis.com/maps/api/js?key=<%= Rails.application.credentials.gmaps_api_key %>&callback=initMap" type="text/javascript"></script>
+    </div>
+  </div>
+  <div class = "row justify-content-center">
+    <div class = "col-md-12 mb-3">
+    <center>
+    <%= form_tag nearmelists_path, method: :get do %>
+      <%=hidden_field_tag :lat, '1', id: 'hidden-lat' %>
+      <%=hidden_field_tag :lng, '1', id: 'hidden-lng' %>
+      <%=submit_tag 'List of nearby restaurants, convenience stores, and liquor stores', id: 'try-it' %>
+    <% end%>
+    </center>
+    </div>
+  </div>
+</div>  
 
-<p>Click the button to get your coordinates.</p>
 
-<p id="demo"></p>
-
-<div id='map_nearme' style="width:400px;height:400px" data-places="<%= @place.to_json %>"></div>
-<script src="https://maps.googleapis.com/maps/api/js?key=<%= Rails.application.credentials.gmaps_api_key %>&callback=initMap" type="text/javascript"></script>
-
-<%= form_tag nearmelists_path, method: :get do %>
-  <%=hidden_field_tag :lat, '1', id: 'hidden-lat' %>
-  <%=hidden_field_tag :lng, '1', id: 'hidden-lng' %>
-  <%=submit_tag 'Near Me', id: 'try-it' %>
-<% end%>

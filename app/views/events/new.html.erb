@@ -1,34 +1,39 @@
-<div class="card">
+<div class="card card-new">
   <div class="card-body">
-<h1>Add New Event</h1>
-<%= form_with scope: :event, url: events_path, local: true do |form| %>
+    <%= puts "___________________________________________" %>
+    <%= puts @places %>
+    <h1>Add New Event</h1>
+    <%= form_with scope: :event, url: events_path, local: true do |form| %>
 
-    <p>
-    <%= form.label :Name %><br>
-    <%= form.text_field :name %>
-    </p>
+      <div class="input-group mb-3"> 
+        <%= form.text_field :name, class: 'form-control', placeholder: :name, 'aria-label': :name, 'aria-describedby':'basic-addon2' %>
+      </div>
 
-    <p>
-    <%= form.label :Description %><br>
-    <%= form.text_field :description %>
-    </p>
+      <div class="input-group mb-3"> 
+        <%= form.text_field :place, class: 'form-control', placeholder: :place, 'aria-label': :place, 'aria-describedby':'basic-addon2' %>
+      </div>
 
-    <p>
-    <%= form.label :Start %><br>
-    <%= form.text_field :start_time %>
-    </p>
+      <div class="input-group mb-3"> 
+        <%= form.text_area :description, class: 'form-control', placeholder: :d, 'aria-label': :d, 'aria-describedby':'basic-addon2' %>
+      </div>
 
-    <p>
-    <%= form.label :End  %><br>
-    <%= form.text_field :end_time %>
-    </p>
+      <%# http://daemonite.github.io/material/docs/4.1/material/pickers/#date-pickers %>
+      <div class="input-group mb-3">
+        <div class="input-group-prepend">
+          <%= form.label :start %>
+        </div>
+        <%= form.datetime_field :start_time, class: 'form-control', placeholder: :start_time, 'aria-label': :start_time, 'aria-describedby':'basic-addon2' %>
+        <div class="input-group-prepend">
+          <%= form.label :end %>
+        </div>
+        <%= form.datetime_field :end_time, class: 'form-control', placeholder: :end_time, 'aria-label': :end_time, 'aria-describedby':'basic-addon2' %>
+      </div>
 
-    <p>
-    <%= form.submit %>
-  </p>
+      <div>  
+        <%= form.submit :submit, class:"btn btn-secondary" %>
+      </div>
 
-<% end %>
-
+    <% end %>
 
   </div>
 </div>

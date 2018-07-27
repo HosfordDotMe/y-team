@@ -7,6 +7,7 @@ class EventsController < ApplicationController
 
      #create event 
      def create
+        places = Place.all
         @event = Event.new(event_params)
         @event.save
         redirect_to @event

@@ -67,3 +67,10 @@
  @import "material-kit/responsive";
 
  @import "https://fonts.googleapis.com/icon?family=Material+Icons";
+
+ //janky Fix part Deux
+
+ .card-new { 
+   max-width: 80%;
+   margin:auto;
+ }

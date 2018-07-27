@@ -1,7 +1,34 @@
-<div id="list-nearme">
-  <ul>
-<% @places_list.each do |place| %>
-  <li><%= place %></li>
-<% end %>
-  </ul>
+<div class="container">
+  <div class="row">
+    <div class ="col-md-4 mb-3">
+      <div class="card">
+        <div class="card-body">
+          <h4 class="card-title">List of nearby restaurants</h4>
+          <% @places_restaurants.each do |place| %>
+            <li><%= place %></li>
+          <% end %>
+        </div>
+      </div>
+    </div>
+    <div class ="col-md-4 mb-3">
+      <div class="card">
+        <div class="card-body">
+          <h4 class="card-title">List of nearby convenience stores</h4>
+          <% @places_convenience.each do |place| %>
+            <li><%= place %></li>
+          <% end %>
+        </div>
+      </div>
+    </div>
+    <div class ="col-md-4 mb-3">
+      <div class="card">
+        <div class="card-body">
+          <h4 class="card-title">List of nearby liquor stores</h4>
+          <% @places_liquor.each do |place| %>
+            <li><%= place %></li>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>

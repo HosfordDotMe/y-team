@@ -7,4 +7,5 @@ Rails.application.routes.draw do
   resources :events
   resources :nearmes
   resources :profiles
+  resources :nearmelists
 end

@@ -1,4 +1,9 @@
-<h1>All Places</h1>
+
+<div class="card card-nav-tabs text-center">
+ <div class="card-header card-header-primary">
+<h1 class="text-center"> All Places</h1>
+ </div>
+ <div class="card-body">
 <table>
   <tr>
     <th>Name</th>
@@ -9,7 +14,7 @@
 
   <% @places.each do |place| %>
     <tr>
-    
+
       <td> <%= link_to place.name, place_path(place) %></td>
       <td><%= place.lat %></td>
       <td><%= place.lng %></td>
@@ -18,3 +23,5 @@
   <% end %>
 
 </table>
+
+</div> </div>

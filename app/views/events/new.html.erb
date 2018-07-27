@@ -1,6 +1,8 @@
+<div class="card">
+  <div class="card-body">
 <h1>Add New Event</h1>
 <%= form_with scope: :event, url: events_path, local: true do |form| %>
-    
+
     <p>
     <%= form.label :Name %><br>
     <%= form.text_field :name %>
@@ -24,5 +26,9 @@
     <p>
     <%= form.submit %>
   </p>
-  
+
 <% end %>
+
+
+  </div>
+</div>

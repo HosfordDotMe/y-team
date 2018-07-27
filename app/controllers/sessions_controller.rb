@@ -12,17 +12,12 @@ class SessionsController < ApplicationController
    else
      flash[:danger] = "Your email or password does not match"
      redirect_to sessions_path
- end
+    end
+  end
 
  def destroy
    session[:user_id] = nil
    redirect_to sessions_path 
  end
-
-  end
-
-
-
-
 
 end

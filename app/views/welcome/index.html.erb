@@ -1,5 +1,8 @@
 
+
 <!-- carousel -->
+<div class="card bg-dark text-white">
+
     <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
       <ol class="carousel-indicators">
         <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
@@ -14,12 +17,20 @@
         <div class="carousel-item active">
           <img class="d-block w-100" src="../../../assets/img/bg2.jpg" alt="First slide">
         </div>
+        <% @places.each do |place| %>
+          <div class="carousel-item">
+            <img class="d-block w-100" src="<%= place.image_uri %>" alt="<%= place.name %>">
+          </div>
+          <% end %>
+        <%# <div class="carousel-item active">
+          <img class="d-block w-100" src="../../../assets/img/bg2.jpg" alt="First slide">
+        </div>
         <div class="carousel-item">
           <img class="d-block w-100" src="../../../assets/img/bg3.jpg" alt="Second slide">
         </div>
         <div class="carousel-item">
           <img class="d-block w-100" src="../../../assets/img/bg.jpg" alt="Third slide">
-        </div>
+        </div> %>
       </div>
       <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
         <span class="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -30,30 +41,51 @@
         <span class="sr-only">Next</span>
       </a>
     </div>
-
+    <div class="card-img-overlay">
+      <h4 class="card-title">Card title</h4>
+      <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+      <p class="card-text">Last updated 3 mins ago</p>
+    </div>
+  </div>
 <!-- The Two grids -->
 
-<div class="d-md-flex flex-md-equal w-100 my-md-3 pl-md-3">
-      <div class="bg-dark mr-md-3 pt-3 px-3 pt-md-5 px-md-5 text-center text-white overflow-hidden">
-        <div class="my-3 py-3">
-          <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed purus neque, eleifend vel turpis ut, gravida consequat risus. Phasellus arcu lacus, sollicitudin malesuada dolor vitae, imperdiet porta felis. Pellentesque ac ullamcorper purus. Proin nec placerat est. Vestibulum sodales neque quis mollis ultricies. Aenean eget imperdiet mi. Aenean interdum, mi sit amet luctus rutrum, orci nunc imperdiet purus, at hendrerit lacus ante et ante. Duis accumsan diam tellus, in aliquam massa gravida quis. Nulla cursus lorem at nulla dignissim, eu lacinia sem egestas. Ut non lorem eu ligula tincidunt tincidunt in in velit. Curabitur pretium, nisi et pretium cursus, urna odio tempus mi, nec varius nisl nulla at nibh. Vivamus condimentum scelerisque enim eu posuere. Phasellus vel varius sapien.
+<div class="container">
+ <div class="row">
+<div class="col">
+  <div class="card">
+  <div class="card-header card-header-danger">
+     <h4 class="card-title">Full header coloured</h4>
+     <p class="category">Category subtitle</p>
+ </div>
+<div class="card-body">
+  <h4 class="card-title">Card title</h4>
+  <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
+  <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+  <a href="#0" class="card-link">Card link</a>
+  <a href="#0" class="card-link">Another link</a>
+</div>
+</div>
+</div>
 
-          Suspendisse venenatis mauris ut tortor lacinia, non faucibus quam pellentesque. Sed nec tincidunt nibh. Praesent ut congue lectus. Sed scelerisque quam eget odio aliquam venenatis. Sed efficitur at nisi eget molestie. Aenean viverra quis erat sit amet lobortis. Curabitur leo nibh, placerat ac risus ac, efficitur blandit ante. Duis volutpat et orci sit amet euismod. Interdum et malesuada fames ac ante ipsum primis in faucibus. Nullam et gravida ipsum, vehicula feugiat turpis. Ut pretium leo eget elit semper, id molestie sem suscipit. Cras tincidunt ex et augue aliquam sagittis.
+<div class="col">
+  <div class="col"><div class="card">
+  <div class="card-header card-header-danger">
+     <h4 class="card-title">Full header coloured</h4>
+     <p class="category">Category subtitle</p>
+ </div>
+<div class="card-body">
+  <h4 class="card-title">Card title</h4>
+  <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
+  <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+  <a href="#0" class="card-link">Card link</a>
+  <a href="#0" class="card-link">Another link</a>
+</div>
+</div>
+
+ </div>
 
 
-          </p>
-        </div>
-      </div>
-      <div class="bg-light mr-md-3 pt-3 px-3 pt-md-5 px-md-5 text-center overflow-hidden">
-        <div class="my-3 p-3">
-<p>
-  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed purus neque, eleifend vel turpis ut, gravida consequat risus. Phasellus arcu lacus, sollicitudin malesuada dolor vitae, imperdiet porta felis. Pellentesque ac ullamcorper purus. Proin nec placerat est. Vestibulum sodales neque quis mollis ultricies. Aenean eget imperdiet mi. Aenean interdum, mi sit amet luctus rutrum, orci nunc imperdiet purus, at hendrerit lacus ante et ante. Duis accumsan diam tellus, in aliquam massa gravida quis. Nulla cursus lorem at nulla dignissim, eu lacinia sem egestas. Ut non lorem eu ligula tincidunt tincidunt in in velit. Curabitur pretium, nisi et pretium cursus, urna odio tempus mi, nec varius nisl nulla at nibh. Vivamus condimentum scelerisque enim eu posuere. Phasellus vel varius sapien.
 
-Suspendisse venenatis mauris ut tortor lacinia, non faucibus quam pellentesque. Sed nec tincidunt nibh. Praesent ut congue lectus. Sed scelerisque quam eget odio aliquam venenatis. Sed efficitur at nisi eget molestie. Aenean viverra quis erat sit amet lobortis. Curabitur leo nibh, placerat ac risus ac, efficitur blandit ante. Duis volutpat et orci sit amet euismod. Interdum et malesuada fames ac ante ipsum primis in faucibus. Nullam et gravida ipsum, vehicula feugiat turpis. Ut pretium leo eget elit semper, id molestie sem suscipit. Cras tincidunt ex et augue aliquam sagittis.
-
-
-</p>
-        </div>
-      </div>
-    </div>
+ </div>
+ </div>
+</div>

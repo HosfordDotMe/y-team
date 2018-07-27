@@ -4,10 +4,6 @@
     <title>YTeam</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-    <!-- <script
-  src="https://code.jquery.com/jquery-3.3.1.min.js"
-  integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
-  crossorigin="anonymous"></script> -->
     <%= stylesheet_link_tag    'application', media: 'all' %>
     <%= javascript_include_tag 'application' %>
   </head>
@@ -28,12 +24,14 @@
 
 
             <div class="collapse navbar-collapse">
+
               <ul class="navbar-nav">
                   <% if current_user %>
                 <li class="nav-item">
 
-                  <%= link_to current_user.uname, root_path, { :class=>"nav-link"} %>
+                  <%= link_to current_user.uname, profiles_path, { :class=>"nav-link"} %>
                 </li>
+
                     <li class="nav-item">
                       <%=link_to "Places", places_path, { :class=>"nav-link"} %>
                       <!-- <a href="#places" class="nav-link">link</a> -->
@@ -52,9 +50,7 @@
 
                     </li>
                   <% else %>
-                    <li class="nav-item">
-                      <%=link_to "Login/Signup", sessions_path, { :class=>"nav-link"} %>
-                    </li>
+
                     <li class="nav-item">
                       <%=link_to "Places", places_path, { :class=>"nav-link"} %>
                       <!-- <a href="#places" class="nav-link">link</a> -->
@@ -67,23 +63,43 @@
                         <!-- <a href="#events" class="nav-link">link</a> -->
                         <%=link_to "Near Me", nearmes_path, { :class=>"nav-link"} %>
                     </li>
+
+                  </ul>
+
                   <% end %>
-                </ul>
-                <form class="form-inline ml-auto">
-                <div class="form-group no-border">
-                  <input type="text" class="form-control" placeholder="Search">
-                </div>
-                <button type="submit" class="btn btn-white btn-just-icon btn-round">
-                   <i class="material-icons">search</i>
-                </button>
-              </form>
+
+
             </div>
+
+            <form class="form-inline ml-auto">
+            <div class="form-group no-border">
+              <input type="text" class="form-control" placeholder="Search">
+            </div>
+            <button type="submit" class="btn btn-white btn-just-icon btn-round">
+               <i class="material-icons">search</i>
+            </button>
+          </form>
+          <ul class="navbar-nav nav justify-content-end">
+          <li class="nav-item">
+            <%=link_to "Login/Signup", sessions_path, { :class=>"nav-link"} %>
+          </li>
+
+          </ul>
+
         </div>
+
+
+
     </nav>
 
+<!-- Wrong Sign in information -->
   <% flash.each do |type, message| %>
 			<div class="alert alert-<%= type %>"><%= message %></div>
 		<% end %>
+
+
+
+
 
     <%= yield %>
   </body>
@@ -92,23 +108,23 @@
     <nav class="float-left">
       <ul>
         <li>
-          <a href="https://www.creative-tim.com">
-              Creative Tim
+          <a href="http://www.cityofgainesville.org/">
+              City of Gainesville
           </a>
         </li>
         <li>
-          <a href="https://creative-tim.com/presentation">
-              About Us
+          <a href="http://www.alachuacounty.us/Pages/AlachuaCounty.aspx">
+              Alachua County
           </a>
         </li>
         <li>
-          <a href="http://blog.creative-tim.com">
-              Blog
+          <a href="http://www.ufl.edu/">
+              University of Florida
           </a>
         </li>
         <li>
-          <a href="https://www.creative-tim.com/license">
-              Licenses
+          <a href="http://www.sfcollege.edu/">
+              Santa Fe College
           </a>
         </li>
       </ul>
@@ -118,7 +134,7 @@
         <script>
             document.write(new Date().getFullYear())
         </script>, made with <i class="material-icons">favorite</i> by
-        <a href="https://www.creative-tim.com" target="_blank">Creative Tim</a> for a better web.
+        <a href="https://github.com/hosforddotme/y-team" target="_blank">Y Team</a>.
     </div>
   </div>
 </footer>

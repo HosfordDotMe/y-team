@@ -9,9 +9,11 @@ $(document).ready(function(){
     }
   }
 
+
   function showPosition(position) {
+
     x.innerHTML = "Latitude: " + position.coords.latitude + "<br>Longitude: " + position.coords.longitude;
-    //  var center = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
+     var center = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
 
     gMap = new google.maps.Map(document.getElementById('map_nearme'));
     gMap.setZoom(18);      // This will trigger a zoom_changed on the map
@@ -43,42 +45,8 @@ $(document).ready(function(){
       infowindow.setContent(content);
       infowindow.open(gMap, marker)
     };
-
-//----------------- Get Multilple Markers ----------------------------
-
-infowindow = new google.maps.InfoWindow();
-        var service = new google.maps.places.PlacesService(gMap);
-        service.nearbySearch({
-          location: position,
-          radius: 500,
-          type: ['food']
-        }, callback);
-      }
-
-      function callback(results, status) {
-        if (status === google.maps.places.PlacesServiceStatus.OK) {
-          for (var i = 0; i < results.length; i++) {
-            createMarker(results[i]);
-          }
-        }
-      }
-
-      function createMarker(place) {
-        var placeLoc = place.geometry.location;
-        var marker = new google.maps.Marker({
-          map: gMap,
-          position: place.geometry.location
-        });
-
-        google.maps.event.addListener(marker, 'click', function() {
-          infowindow.setContent(place.name);
-          infowindow.open(map, this);
-        });
-
-//----------------- Get Multilple Markers ----------------------------
   }
 
-  $("#try-it").click(function(){
-    getLocation();
-  });
+  getLocation();
+
 });

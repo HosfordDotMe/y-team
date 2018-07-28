@@ -1,142 +1,110 @@
 <!DOCTYPE html>
 <html>
+
   <head>
     <title>YTeam</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-    <%= stylesheet_link_tag    'application', media: 'all' %>
+    <%= stylesheet_link_tag 'application', media: 'all' %>
     <%= javascript_include_tag 'application' %>
   </head>
 
   <body>
     <nav class="navbar navbar-expand-lg bg-info">
-        <div class="container">
-            <div class="navbar-translate">
-                <%=link_to image_tag("GNV-Xplorer.png", width: 80, height: 45), root_path, { :class=>"navbar-brand" } %>
-                <!-- <%=link_to "GNV-Xplorer" , root_path, { :class=>"navbar-brand"} %> -->
-                <button class="navbar-toggler" type="button" data-toggle="collapse" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="navbar-toggler-icon"></span>
-                <span class="navbar-toggler-icon"></span>
-                <span class="navbar-toggler-icon"></span>
-                </button>
-            </div>
+      <div class="container">
+        <%=link_to image_tag("GNV-Xplorer.png"), root_path, { :class=>"navbar-brand" } %>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" 
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="navbar-toggler-icon"></span>
+        </button>
 
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav mr-auto">
 
-            <div class="collapse navbar-collapse">
+            <li class="nav-item">
+              <%=link_to "Places", places_path, { :class=>"nav-link"} %>
+            </li>
 
-              <ul class="navbar-nav">
-                  <% if current_user %>
-                <li class="nav-item">
+            <li class="nav-item">
+              <%=link_to "Events", events_path, { :class=>"nav-link"} %>
+            </li>
 
-                  <%= link_to current_user.uname, profiles_path, { :class=>"nav-link"} %>
-                </li>
-
-                    <li class="nav-item">
-                      <%=link_to "Places", places_path, { :class=>"nav-link"} %>
-                      <!-- <a href="#places" class="nav-link">link</a> -->
-                    </li>
-                    <li class="nav-item">
-                        <!-- <a href="#events" class="nav-link">link</a> -->
-                        <%=link_to "Events", events_path, { :class=>"nav-link"} %>
-                    </li>
-                    <li class="nav-item">
-                        <!-- <a href="#events" class="nav-link">link</a> -->
-                        <%=link_to "Near Me", nearmes_path, { :class=>"nav-link"} %>
-                    </li>
-
-                    <li class="nav-item">
-                      <%=link_to "Logout", session_path(current_user.id), {method: :delete,   class: "nav-link"} %>
-
-                    </li>
-                  <% else %>
-
-                    <li class="nav-item">
-                      <%=link_to "Places", places_path, { :class=>"nav-link"} %>
-                      <!-- <a href="#places" class="nav-link">link</a> -->
-                    </li>
-                    <li class="nav-item">
-                        <!-- <a href="#events" class="nav-link">link</a> -->
-                        <%=link_to "Events", events_path, { :class=>"nav-link"} %>
-                    </li>
-                    <li class="nav-item">
-                        <!-- <a href="#events" class="nav-link">link</a> -->
-                        <%=link_to "Near Me", nearmes_path, { :class=>"nav-link"} %>
-                    </li>
-
-                  </ul>
-
-                  <% end %>
-
-
-            </div>
-
-            <form class="form-inline ml-auto">
-            <div class="form-group no-border">
-              <input type="text" class="form-control" placeholder="Search">
-            </div>
-            <button type="submit" class="btn btn-white btn-just-icon btn-round">
-               <i class="material-icons">search</i>
-            </button>
+            <li class="nav-item">
+              <%=link_to "Near Me", nearmes_path, { :class=>"nav-link"} %>
+            </li>
+            <% if current_user %>
+              <li class="nav-item">
+                <%=link_to "Logout", session_path(current_user.id), { method: :delete, class: "nav-link"} %>
+              </li>
+            <% end %>
+          </ul>
+  
+          <form class="form-inline my-2 my-lg-0">
+            <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+            <button class="btn btn-outline my-0 my-sm-0" type="submit"><i class="material-icons">search</i></button>
           </form>
           <ul class="navbar-nav nav justify-content-end">
-          <li class="nav-item">
-            <%=link_to "Login/Signup", sessions_path, { :class=>"nav-link"} %>
-          </li>
-
+            <% if current_user %>
+              <li class="nav-item">
+                <%= link_to current_user.uname, profiles_path, { :class=>"nav-link"} %>
+              </li>
+            <% else %>      
+            <li class="nav-item">
+              <%=link_to "Login/Signup", sessions_path, { :class=>"nav-link"} %>
+            </li>
+            <% end %>
           </ul>
-
         </div>
-
-
-
+      </div>
     </nav>
 
-<!-- Wrong Sign in information -->
-  <% flash.each do |type, message| %>
-			<div class="alert alert-<%= type %>"><%= message %></div>
-		<% end %>
-
-
-
-
+    <!-- Wrong Sign in information -->
+    <% flash.each do |type, message| %>
+      <div class="alert alert-<%= type %>">
+        <%= message %>
+      </div>
+    <% end %>
 
     <%= yield %>
+
   </body>
-  <footer class="footer" >
-  <div class="container">
-    <nav class="float-left">
-      <ul>
-        <li>
-          <a href="http://www.cityofgainesville.org/">
-              City of Gainesville
-          </a>
-        </li>
-        <li>
-          <a href="http://www.alachuacounty.us/Pages/AlachuaCounty.aspx">
-              Alachua County
-          </a>
-        </li>
-        <li>
-          <a href="http://www.ufl.edu/">
-              University of Florida
-          </a>
-        </li>
-        <li>
-          <a href="http://www.sfcollege.edu/">
+  <footer class="footer">
+    <div class="container">
+<!--      <nav class="float-left">
+        <ul class="nav">
+          <li class="nav-item">
+            <a href="http://www.cityofgainesville.org/">
+              City of Gainesville   
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="http://www.alachuacounty.us/Pages/AlachuaCounty.aspx">
+              Alachua County   
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="http://www.ufl.edu/">
+              University of Florida   
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="http://www.sfcollege.edu/">
               Santa Fe College
-          </a>
-        </li>
-      </ul>
-    </nav>
-    <div class="copyright float-right">
+            </a>
+          </li>
+        </ul>
+      </nav>
+-->    
+      <div class="copyright float-right">
         &copy;
         <script>
-            document.write(new Date().getFullYear())
-        </script>, made with <i class="material-icons">favorite</i> by
+          document.write(new Date().getFullYear())
+        </script>, made with
+        <i class="material-icons">favorite</i> by
         <a href="https://github.com/hosforddotme/y-team" target="_blank">Y Team</a>.
+      </div>
     </div>
-  </div>
-</footer>
+  </footer>
 
 </html>

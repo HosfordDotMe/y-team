@@ -1,7 +1,5 @@
 <div class="card card-new">
   <div class="card-body">
-    <%= puts "___________________________________________" %>
-    <%= puts @places %>
     <h1>Add New Event</h1>
     <%= form_with scope: :event, url: events_path, local: true do |form| %>
 
@@ -10,9 +8,8 @@
       </div>
 
       <div class="input-group mb-3"> 
-        <%= form.text_field :place, class: 'form-control', placeholder: :place, 'aria-label': :place, 'aria-describedby':'basic-addon2' %>
+        <%= form.select :place, options_from_collection_for_select(@places, 'id', 'name', '1'), {}, {class: 'form-control'} %>
       </div>
-
       <div class="input-group mb-3"> 
         <%= form.text_area :description, class: 'form-control', placeholder: :d, 'aria-label': :d, 'aria-describedby':'basic-addon2' %>
       </div>

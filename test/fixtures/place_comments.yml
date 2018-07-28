@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  rating: 1
+  title: MyString
+  text: MyText
+  user: one
+  places: one
+  flagged: false
+  enabled: false
+
+two:
+  rating: 1
+  title: MyString
+  text: MyText
+  user: two
+  places: two
+  flagged: false
+  enabled: false

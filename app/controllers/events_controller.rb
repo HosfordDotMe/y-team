@@ -5,13 +5,16 @@ class EventsController < ApplicationController
       @events = Event.all
     end
 
-     #create event 
-     def create
-        places = Place.all
-        @event = Event.new(event_params)
-        @event.save
-        redirect_to @event
-      end
+    def new
+      @places = Place.all
+    end
+
+    #create event 
+    def create
+      @event = Event.new(event_params)
+      @event.save
+      redirect_to @event
+    end
   
     #show single event
     def show

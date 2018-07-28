@@ -1,27 +1,20 @@
-
-<div class="card card-nav-tabs text-center">
- <div class="card-header card-header-primary">
-<h1 class="text-center"> All Places</h1>
- </div>
- <div class="card-body">
-<table>
-  <tr>
-    <th>Name</th>
-    <th>Lat</th>
-    <th>Long</th>
-    <th>Image</th>
-  </tr>
-
-  <% @places.each do |place| %>
-    <tr>
-
-      <td> <%= link_to place.name, place_path(place) %></td>
-      <td><%= place.lat %></td>
-      <td><%= place.lng %></td>
-      <td><img src="<%= place.image_uri %>" alt="<%= place.image_uri %>"></td>
-    </tr>
-  <% end %>
-
-</table>
-
-</div> </div>
+<div class="container">
+  <div class="card text-center">
+    <div class="card-header card-header-primary">
+      <h1 class="text-center">All Places</h1>
+    </div>
+    <div class="card-body">
+      <ul class="list-unstyled">
+        <% @places.each do |place| %>
+          <li class="media">
+            <img class="mr-3" src="<%= place.image_uri %>" alt="<%= place.name %>">
+            <div class="media-body">
+              <h5 class="mt-0 mb-1"><%= link_to place.name, place_path(place) %></h5>
+              Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.
+            </div>
+          </li>
+        <% end %>
+      </ul>
+    </div>
+  </div>
+</div>

@@ -65,46 +65,47 @@
         <%= message %>
       </div>
     <% end %>
-
-    <%= yield %>
-
-  </body>
-  <footer class="footer">
-    <div class="container">
-<!--      <nav class="float-left">
-        <ul class="nav">
-          <li class="nav-item">
-            <a href="http://www.cityofgainesville.org/">
-              City of Gainesville   
-            </a>
-          </li>
-          <li class="nav-item">
-            <a href="http://www.alachuacounty.us/Pages/AlachuaCounty.aspx">
-              Alachua County   
-            </a>
-          </li>
-          <li class="nav-item">
-            <a href="http://www.ufl.edu/">
-              University of Florida   
-            </a>
-          </li>
-          <li class="nav-item">
-            <a href="http://www.sfcollege.edu/">
-              Santa Fe College
-            </a>
-          </li>
-        </ul>
-      </nav>
--->    
-      <div class="copyright float-right">
-        &copy;
-        <script>
-          document.write(new Date().getFullYear())
-        </script>, made with
-        <i class="material-icons">favorite</i> by
-        <a href="https://github.com/hosforddotme/y-team" target="_blank">Y Team</a>.
-      </div>
+    
+    <div class="content">
+      <%= yield %>
     </div>
-  </footer>
-
+    
+    <footer class="footer">
+      <div class="container">
+  <!--      <nav class="float-left">
+          <ul class="nav">
+            <li class="nav-item">
+              <a href="http://www.cityofgainesville.org/">
+                City of Gainesville   
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="http://www.alachuacounty.us/Pages/AlachuaCounty.aspx">
+                Alachua County   
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="http://www.ufl.edu/">
+                University of Florida   
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="http://www.sfcollege.edu/">
+                Santa Fe College
+              </a>
+            </li>
+          </ul>
+        </nav>
+  -->    
+        <div class="copyright float-right">
+          &copy;
+          <script>
+            document.write(new Date().getFullYear())
+          </script>, made with
+          <i class="material-icons">favorite</i> by
+          <a href="https://github.com/hosforddotme/y-team" target="_blank">Y Team</a>.
+        </div>
+      </div>
+    </footer>
+  </body>
 </html>

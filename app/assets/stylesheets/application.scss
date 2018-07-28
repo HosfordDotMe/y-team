@@ -21,13 +21,27 @@
 // Let's organize these by expected use case
 // i.e. Welcome Page vs whole site etc.
 // Throw a comment in about whats going on if weird
+html,
+body {
+  height: 100%;
+}
 
- body {
-   font: Montserrat, sans-serif;
-   line-height: 1.8;
-   color: #686b6e;
-   background: #c5c7c9
- }
+body {
+  font: Montserrat, sans-serif;
+  line-height: 1.8;
+  color: #424242;
+  background: #dddddd;
+  display: flex;
+  flex-direction: column;
+}
+
+.content {
+  flex: 1 0 auto;
+}
+
+.footer {
+  flex-shrink: 0;
+}
 
 .navbar {
   margin-bottom: 20px;
@@ -38,7 +52,7 @@
 }
 
 .footer {
-  margin-top: 20px;
+  margin: 20px 0 20px;
 }
 
 // can prob be removed and use container class

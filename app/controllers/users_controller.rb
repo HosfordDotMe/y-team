@@ -20,8 +20,9 @@ class UsersController < ApplicationController
     flash[:success] = "Welcome to GNV Xplorer"
     redirect_to new_place_path
   end
-
+  
   def show
+    before_action :require_user, only: [:show]
     @user = User.find(params[:id])
     @users = User.all
   end

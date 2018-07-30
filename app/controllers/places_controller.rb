@@ -21,6 +21,6 @@ class PlacesController < ApplicationController
   #creates new place. no error checking yet.
   private
   def place_params
-    params.require(:place).permit(:name, :lat, :lng, :image_uri)
+    params.require(:place).permit(:name, :lat, :lng, :image_uri, :description)
   end
 end

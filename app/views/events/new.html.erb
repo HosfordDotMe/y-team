@@ -1,36 +1,41 @@
-<div class="card card-new">
-  <div class="card-body">
-    <h1>Add New Event</h1>
-    <%= form_with scope: :event, url: events_path, local: true do |form| %>
+<div class="container">
+  <div class="card">
+    <div class="card-body">
+      <h3>Add New Event</h3>
+      <%= form_with scope: :event, url: events_path, local: true do |form| %>
 
-      <div class="input-group mb-3"> 
-        <%= form.text_field :name, class: 'form-control', placeholder: :name, 'aria-label': :name, 'aria-describedby':'basic-addon2' %>
-      </div>
-
-      <div class="input-group mb-3"> 
-        <%= form.select :place, options_from_collection_for_select(@places, 'id', 'name', '1'), {}, {class: 'form-control'} %>
-      </div>
-      <div class="input-group mb-3"> 
-        <%= form.text_area :description, class: 'form-control', placeholder: :d, 'aria-label': :d, 'aria-describedby':'basic-addon2' %>
-      </div>
-
-      <%# http://daemonite.github.io/material/docs/4.1/material/pickers/#date-pickers %>
-      <div class="input-group mb-3">
-        <div class="input-group-prepend">
-          <%= form.label :start %>
+        <div class="input-group mb-3"> 
+          <%= form.text_field :name, class: 'form-control', placeholder: :name, 'aria-label': :name, 'aria-describedby': 'basic-addon2', required: true %>
         </div>
-        <%= form.datetime_field :start_time, class: 'form-control', placeholder: :start_time, 'aria-label': :start_time, 'aria-describedby':'basic-addon2' %>
-        <div class="input-group-prepend">
-          <%= form.label :end %>
+
+        <div class="input-group mb-3"> 
+          <%= form.select :place_id, options_from_collection_for_select(@places, 'id', 'name', '1'), {}, {class: 'form-control', required: true } %>
         </div>
-        <%= form.datetime_field :end_time, class: 'form-control', placeholder: :end_time, 'aria-label': :end_time, 'aria-describedby':'basic-addon2' %>
-      </div>
+        <div class="input-group mb-3"> 
+          <%= form.text_area :description, class: 'form-control', placeholder: :d, 'aria-label': :d, 'aria-describedby': 'basic-addon2', required: true %>
+        </div>
 
-      <div>  
-        <%= form.submit :submit, class:"btn btn-secondary" %>
-      </div>
+        <%# http://daemonite.github.io/material/docs/4.1/material/pickers/#date-pickers %>
+        <%# https://guides.rubyonrails.org/v2.3.11/form_helpers.html %>
+        <div class="input-group mb-3">
+          <div class="input-group-prepend">
+            <%= form.label :start %>
+          </div>
+          <%= form.datetime_select(:start_time,{ampm: true} ,{class: 'form-control' , required: true}) %>
+        </div> 
+        <div class="input-group mb-3"> 
+          <div class="input-group-prepend">
+            <%= form.label :end %>
+          </div>
+        <%= form.datetime_select(:end_time,{ampm: true} ,{class: 'form-control' , required: true}) %>
 
-    <% end %>
+        </div>
+        <div>  
+          <%= form.submit :submit, class:"btn btn-secondary" %>
+        </div>
 
+      <% end %>
+
+    </div>
   </div>
 </div>

@@ -32,16 +32,16 @@ class NearmelistsController < ApplicationController
     end
     @places_convenience = places_convenience
 
-    url = "https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=" + lat + "," + lng + "&radius=1500&type=liquor_store&keyword=&key=" + Rails.application.credentials.gmaps_api_key
+    url = "https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=" + lat + "," + lng + "&radius=1500&type=bar&keyword=&key=" + Rails.application.credentials.gmaps_api_key
     uri = URI(url)
     response = Net::HTTP.get(uri)
     places = JSON.parse(response)
 
-    places_liquor = []
+    places_bars = []
     places["results"].each do |result|
-      places_liquor.push(result["name"])
+      places_bars.push(result["name"])
     end
-    @places_liquor = places_liquor
+    @places_bars = places_bars
 
   end
 end

@@ -1,30 +1,35 @@
-<div class="card">
-  <div class="card-body">
+<div class="container">
+  <div class="card">
+    <div class="card-body">
+      <h3>Add New Place</h3>
+      <%= form_with scope: :place, url: places_path, local: true do |form| %>
 
-<h1>New Place</h1>
-<%= form_with scope: :place, url: places_path, local: true do |form| %>
-  <p>
-    <%= form.label :name %><br>
-    <%= form.text_field :name %>
-  </p>
+        <div class="input-group mb-3"> 
+          <%= form.text_field :name, class: 'form-control', placeholder: :name, 'aria-label': :name, 'aria-describedby': 'basic-addon2', required: true %>
+        </div>
 
-  <p>
-    <%= form.label :lat %><br>
-    <%= form.text_field :lat %>
-  </p>
-  <p>
-    <%= form.label :lng %><br>
-    <%= form.text_field :lng %>
-  </p>
-  <p>
-    <%= form.label :image_uri %><br>
-    <%= form.text_field :image_uri %>
-  </p>
+        <div class="input-group mb-3"> 
+          <%= form.text_field :lat, class: 'form-control', placeholder: "Latitude", 'aria-label': :name, 'aria-describedby': 'basic-addon2', required: true %>
+        </div>
+        
+        <div class="input-group mb-3"> 
+          <%= form.text_field :lng, class: 'form-control', placeholder: "Longitude", 'aria-label': :name, 'aria-describedby': 'basic-addon2', required: true %>
+        </div>
 
-  <p>
-    <%= form.submit %>
-  </p>
-<% end %>
+        <div class="input-group mb-3"> 
+          <%= form.text_area :image_uri, class: 'form-control', placeholder: "Image URL", 'aria-label': :name, 'aria-describedby': 'basic-addon2', required: true %>
+        </div>
+        
+        <div class="input-group mb-3"> 
+          <%= form.text_area :description, class: 'form-control', placeholder: :description, 'aria-label': :d, 'aria-describedby': 'basic-addon2', required: true %>
+        </div>
 
-</div>
+        <div>  
+          <%= form.submit :submit, class:"btn btn-secondary" %>
+        </div>
+
+      <% end %>
+
+    </div>
+  </div>
 </div>

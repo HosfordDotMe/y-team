@@ -1,16 +1,26 @@
 <div class="container">
+<div class="card">
+  <div class="card-body">
+
+<div class="container">
+
+
   <div id="hero-carousel" class="carousel slide carousel-fade card" data-ride="carousel">
     <div class="carousel-caption d-none d-md-block">
     </div>
     <div class="carousel-inner">
-      <div class="carousel-item active">
-        <img class="d-block w-100" src="<%= asset_path "bg.jpg" %>" alt="First slide">
-        <div class="carousel-caption d-none d-md-block">
-          <h4>GNX Xplorer</h4>
-          <p>Gainesville's best places!</p>
-        </div>
-      </div>
-      <% @places.each do |place| %>
+
+      <% @places.each_with_index do |place,index| %>
+          <% if index == 0 %>
+          <div class="carousel-item active">
+            <img class="d-block w-100" src="<%= place.image_uri %>" alt="<%= place.name %>">
+            <div class="carousel-caption d-none d-md-block">
+              <h4>GNX Xplorer</h4>
+              <p>Gainesville's best places!</p>
+
+            </div>
+          </div>
+      <%else%>
         <div class="carousel-item">
           <img class="d-block w-100" src="<%= place.image_uri %>" alt="<%= place.name %>">
           <div class="carousel-caption d-none d-md-block">
@@ -18,6 +28,7 @@
             <p>Some kind of description. prob need to limit chars.</p>
           </div>
         </div>
+      <% end %>
       <% end %>
     </div>
     <a class="carousel-control-prev" href="#hero-carousel" role="button" data-slide="prev">
@@ -34,36 +45,57 @@
     <div class="row">
       <div class="col">
         <div class="card">
-          <div class="card-header card-header-danger">
+          <div class="card-header card-header-danger mx-auto">
             <h4 class="card-title">Top Ten Places</h4>
-            <p class="category">Category subtitle</p>
+            <!-- <p class="category">Category subtitle</p> -->
           </div>
           <div class="card-body">
             <h4 class="card-title"></h4>
             <h6 class="card-subtitle mb-2 text-muted"></h6>
             <p class="card-text">
-              Lorem ipsum, dolor sit amet consectetur adipisicing elit. Unde, nemo. Tenetur aperiam cum perspiciatis quis provident modi nemo optio eaque, facilis eveniet suscipit quae dolorem dolorum deserunt explicabo ab est.
-            </p>
-            <a href="places/new" class="card-link">New Place</a>
-            <a href="places" class="card-link">Places</a>
+              <table>
+                <tr>
+                  <th>Name</th>
+                  <th>Description</th>
+                </tr>
+                <% @places.each do |place| %>
+                  <tr>
+                      <td> <%= link_to place.name, place_path(place) %> </td>
+                  </tr>
+                  <% end %>
+                </table>
+              </p>
           </div>
         </div>
       </div>
 
         <div class="col">
           <div class="card">
-            <div class="card-header card-header-danger">
-              <h4 class="card-title">Top Events Places</h4>
-              <p class="category">Category subtitle</p>
+            <div class="card-header card-header-danger mx-auto">
+              <h4 class="card-title mx-auto">Top Events Places</h4>
+              <!-- <p class="category">Events</p> -->
             </div>
             <div class="card-body">
               <h4 class="card-title"></h4>
               <h6 class="card-subtitle mb-2 text-muted"></h6>
               <p class="card-text">
-              Lorem ipsum, dolor sit amet consectetur adipisicing elit. Unde, nemo. Tenetur aperiam cum perspiciatis quis provident modi nemo optio eaque, facilis eveniet suscipit quae dolorem dolorum deserunt explicabo ab est.
-              </p>
-              <a href="events/new" class="card-link">New Event</a>
-              <a href="events" class="card-link">Events</a>
+                <table>
+                  <tr>
+                    <th>Name</th>
+                    <th>Description</th>
+
+                  </tr>
+
+                  <% @events.each do |event| %>
+                    <tr>
+                        <td> <%= link_to event.name, event_path(event) %> </td>
+                        <td> <%= event.description %> </td>
+
+                    </tr>
+                    <% end %>
+                  </table>
+                 </p>
+
             </div>
           </div>
       </div>
@@ -71,4 +103,7 @@
     </div>
   </div>
 
+</div>
+</div>
+</div>
 </div>

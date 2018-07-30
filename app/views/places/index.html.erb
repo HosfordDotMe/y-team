@@ -2,6 +2,7 @@
   <div class="card text-center">
     <div class="card-header card-header-primary">
       <h1 class="text-center">All Places</h1>
+      <h3 class ="text-center"><a href = "places/new" class="button">Add a new place!</a></h3>
     </div>
     <div class="card-body">
       <ul class="list-unstyled">
@@ -10,7 +11,7 @@
             <img class="mr-3" src="<%= place.image_uri %>" alt="<%= place.name %>">
             <div class="media-body">
               <h5 class="mt-0 mb-1"><%= link_to place.name, place_path(place) %></h5>
-              Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.
+              <%=place.description%>
             </div>
           </li>
         <% end %>

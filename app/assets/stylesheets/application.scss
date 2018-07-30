@@ -47,6 +47,11 @@ body {
   margin-bottom: 20px;
 }
 
+.nav-item {
+  color: #FFFFFF;
+
+}
+
 .navbar-brand img {
   width: 80px;
 }
@@ -78,4 +83,12 @@ body {
 .carousel-item img{
     object-fit: cover;
     height: 500px;
+}
+.img-circle {
+    border-radius: 50%;
+}
+
+.logo-head {
+  height: 100px;
+  width: 100px;
 }

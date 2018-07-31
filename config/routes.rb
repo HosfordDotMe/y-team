@@ -8,4 +8,5 @@ Rails.application.routes.draw do
   resources :nearmes
   resources :profiles
   resources :nearmelists
+  resources :categories
 end

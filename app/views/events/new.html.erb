@@ -3,18 +3,16 @@
     <div class="card-body">
       <h3>Add New Event</h3>
       <%= form_with scope: :event, url: events_path, local: true do |form| %>
-
-        <div class="input-group mb-3"> 
+        <div class="input-group mb-3">
           <%= form.text_field :name, class: 'form-control', placeholder: :name, 'aria-label': :name, 'aria-describedby': 'basic-addon2', required: true %>
+          <%= form.select :cat_id, options_from_collection_for_select(@categories, 'id', 'name', '1'), {}, {class: 'form-control', required: true } %>
         </div>
-
-        <div class="input-group mb-3"> 
+        <div class="input-group mb-3">
           <%= form.select :place_id, options_from_collection_for_select(@places, 'id', 'name', '1'), {}, {class: 'form-control', required: true } %>
         </div>
-        <div class="input-group mb-3"> 
+        <div class="input-group mb-3">
           <%= form.text_area :description, class: 'form-control', placeholder: :d, 'aria-label': :d, 'aria-describedby': 'basic-addon2', required: true %>
         </div>
-
         <%# http://daemonite.github.io/material/docs/4.1/material/pickers/#date-pickers %>
         <%# https://guides.rubyonrails.org/v2.3.11/form_helpers.html %>
         <div class="input-group mb-3">
@@ -22,20 +20,17 @@
             <%= form.label :start %>
           </div>
           <%= form.datetime_select(:start_time,{ampm: true} ,{class: 'form-control' , required: true}) %>
-        </div> 
-        <div class="input-group mb-3"> 
+        </div>
+        <div class="input-group mb-3">
           <div class="input-group-prepend">
             <%= form.label :end %>
           </div>
-        <%= form.datetime_select(:end_time,{ampm: true} ,{class: 'form-control' , required: true}) %>
-
+          <%= form.datetime_select(:end_time,{ampm: true} ,{class: 'form-control' , required: true}) %>
         </div>
-        <div>  
+        <div>
           <%= form.submit :submit, class:"btn btn-secondary" %>
         </div>
-
       <% end %>
-
     </div>
   </div>
 </div>

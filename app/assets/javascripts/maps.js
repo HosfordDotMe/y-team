@@ -11,8 +11,8 @@ function initMap() {
 }
 
 $(document).ready(function () {
+  if ($('#map').data('place')) {
   var place = $('#map').data('place');
-  // if (typeof place != 'undefined') {
     var position = {
       lat: parseFloat(place.lat),
       lng: parseFloat(place.lng)
@@ -39,6 +39,6 @@ $(document).ready(function () {
       infowindow.setContent(content);
       infowindow.open(map, marker)
     };
-  // }
+  }
 
 });

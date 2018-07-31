@@ -1,23 +1,28 @@
-<h1> This is the Sign Up Page </h1>
-
-
+<div class="container">
+  <div class="card text-center">
+    <div class="card-header card-header-primary">
+      <h1 class="text-center">Sign Up Page</h1>
+    </div>
+    <div class="card-body">
 <%= form_with scope: :user, url: users_path, local: true do |form| %>
-  <p>
-    <%= form.label :Username %><br>
-    <%= form.text_field :uname %>
-  </p>
+  
+  <div class="input-group mb-3"> 
+    <%= form.text_field :uname, class: 'form-control', placeholder: "Username", 'aria-label': :name, 'aria-describedby': 'basic-addon2', required: true %>
+  </div>
+  
+  <div class="input-group mb-3"> 
+  <%= form.text_field :password, class: 'form-control', placeholder: "Password", 'aria-label': :name, 'aria-describedby': 'basic-addon2', required: true %>
+</div>
 
-  <p>
-    <%= form.label :Password %><br>
-    <%= form.text_field :password %>
-  </p>
+<div class="input-group mb-3"> 
+  <%= form.text_field :email, class: 'form-control', placeholder: "Email Address", 'aria-label': :name, 'aria-describedby': 'basic-addon2', required: true %>
+</div>
 
-  <p>
-    <%= form.label :Email %><br>
-    <%= form.text_field :email %>
-  </p>
+<div>  
+  <%= form.submit :"Create Account", class:"btn btn-secondary" %>
+</div>
 
-  <p>
-    <%= form.submit %>
-  </p>
 <% end %>
+    </div>
+  </div>
+</div>

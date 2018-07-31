@@ -1,0 +1,11 @@
+<div class="container">
+  <div class="card">
+    <div class="card-header card-header-primary">
+      <p><strong>Name: </strong><%= @category.name %></p>
+      <p><strong>Type: </strong><%= @category.cat_type %></p>
+      <p><strong>Description: </strong><%= @category.description %><p>
+
+      <%= link_to 'Edit', edit_category_path(@category.id), { :class=>"btn btn-primary", :role=>"button" }  %>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,13 @@
+      <%= form_for category do |form| %>
+        <div class="input-group mb-3"> 
+          <%= form.text_field :name, class: 'form-control', placeholder: :name, 'aria-label': :name, 'aria-describedby': 'basic-addon2', required: true %>
+          <% # TODO Leaving this for now does not autoselect on edit - EH %>
+          <%= form.select :cat_type, options_for_select([['Select Type'], ['Place'], ['Event']], disabled: 'Select Type'), {}, {class: 'form-control', required: true } %>
+
+        </div>
+        <div class="input-group mb-3"> 
+          <%= form.text_area :description, class: 'form-control', placeholder: :description, 'aria-label': :description, 'aria-describedby': 'basic-addon2', required: true %>
+        </div>
+          <%= form.submit :submit, class:"btn btn-secondary" %>
+        </div>
+      <% end %>

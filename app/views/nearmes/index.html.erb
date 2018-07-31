@@ -4,19 +4,19 @@
       <h1 class="text-center">Find out what is nearby!</h1>
     </div>
     <div class="card-body">
-    <div class = "col-md-12 mb-3">
-    <div id='map_nearme' data-places="<%= @place.to_json %>"></div>
-    <script src="https://maps.googleapis.com/maps/api/js?key=<%= Rails.application.credentials.gmaps_api_key %>&callback=initMap" type="text/javascript"></script>
-    </div>
-    <div class = "col-md-12 mb-3">
-    <center>
-    <%= form_tag nearmelists_path, method: :get do %>
-      <%=hidden_field_tag :lat, '1', id: 'hidden-lat' %>
-      <%=hidden_field_tag :lng, '1', id: 'hidden-lng' %>
-      <%=submit_tag 'Check out nearby restaurants, convenience stores, and bars', id: 'try-it' %>
-    <% end%>
-    </center>
-    </div>
+      <div class = "col-md-12 mb-3">
+        <div id='map_nearme' data-places="<%= @place.to_json %>"></div>
+        <script src="https://maps.googleapis.com/maps/api/js?key=<%= Rails.application.credentials.gmaps_api_key %>&callback=initMap" type="text/javascript"></script>
+      </div>
+      <div class = "col-md-12 mb-3">
+        <center>
+          <%= form_tag nearmelists_path, method: :get do %>
+            <%=hidden_field_tag :lat, '1', id: 'hidden-lat' %>
+            <%=hidden_field_tag :lng, '1', id: 'hidden-lng' %>
+            <%=submit_tag 'Check out nearby restaurants, convenience stores, and bars', id: 'try-it' %>
+          <% end%>
+        </center>
+      </div>
     </div>
   </div>
 </div>

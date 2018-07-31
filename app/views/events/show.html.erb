@@ -1,27 +1,59 @@
-<h1> Specific Event </h1>
+<div class = "container">
+<div class="card">
+  <div class="card-body">
 
-<p>
-<strong>Name:</strong>
-<%= @event.name %>
-</p>
+<div class="container">
+  <div class="row">
+    <div class ="col-md-6 mb-3">
+      <div class ="card bg-dark text-white m-0">
+        <img class= "card-img">
+          <img style="height:50vh;"  src="<%= Place.find(@event.place_id).image_uri %>" alt="<%= Place.find(@event.place_id).image_uri %>">
+          <div class="card-img-overlay">
+            <h4 class="card-title"><%=Place.find(@event.place_id).name %></h4>
+        </div>
+      </div>
+    </div>
+    <div class ="col-md-6 mb-3">
+      <div id='map' class="places_map" data-place="<%= (Place.find(@event.place_id)).to_json %>" style="height:50vh;">
+        <script src="https://maps.googleapis.com/maps/api/js?key=<%= Rails.application.credentials.gmaps_api_key %>&callback=initMap" type="text/javascript"></script>
+      </div>
+    </div>
+  </div>
+</div>
 
-<p>
-<strong>Description:</strong>
-<%= @event.description %>
-</p>
+<div class="container">
+  <div class="row">
+    <div class ="col-md-12 mb-3" style="background-color:white; height:5vh;">
+    </div>
+  </div>
+</div>
 
-<p>
-<strong>Start Time:</strong>
-<%= @event.start_time %>
-</p>
+<div class="container">
+  <div class="row">
+    <div class ="col-md-6 mb-3">
+        <div class="card-body">
+          <h4 class="card-title"><%=@event.name %></p></h4>
+          <h6 class="card-subtitle mb-2 text-muted">Description</h6>
+          <p class="card-text"><%=@event.description %></p>
+          <h6 class="card-subtitle mb-2 text-muted">Start Time</h6>
+          <p class="card-text"><%=@event.start_time %></p>
+          <h6 class="card-subtitle mb-2 text-muted">End Time</h6>
+          <p class="card-text"><%=@event.end_time %></p>
+          <a href="#0" class="card-link">Card link</a>
+          <a href="#0" class="card-link">Another link</a>
+        </div>
+      </div>
+    <div class ="col-md-6 mb-3">
+        <div class="card-body">
+          <h4 class="card-title">Review</h4>
+          <h6 class="card-subtitle mb-2 text-muted">Comments</h6>
+          <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam orci est, efficitur ac elementum nec, dapibus nec nunc. Integer vitae tincidunt ligula. Nunc dignissim vehicula diam, euismod aliquet erat eleifend ac. Curabitur eu porta turpis. Aliquam erat volutpat. Nulla purus arcu, euismod in nulla ut, gravida viverra sem. Integer diam ipsum, elementum vel arcu dignissim, efficitur tempus sapien.</p>
+          <a href="#0" class="card-link">Card link</a>
+          <a href="#0" class="card-link">Another link</a>
+        </div>
+      </div>
+    </div>
+  </div>
 
-<p>
-<strong>End Time:</strong>
-<%= @event.end_time %>
-</p>
-place:
-<%= @event.place_id %>
-enabled:
-<%= @event.enabled %>
-category:
-<%= @event.category%>
+</div>
+</div>

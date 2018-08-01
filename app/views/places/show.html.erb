@@ -36,10 +36,17 @@
             </div>
             <div class="col-md-6 mb-3">
               <div class="card-body">
-                <h4 class="card-title">Review</h4>
-                <h6 class="card-subtitle mb-2 text-muted">Comments</h6>
-                <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam orci est, efficitur ac elementum nec, dapibus nec nunc. Integer vitae tincidunt ligula. Nunc dignissim vehicula diam, euismod aliquet erat eleifend ac. Curabitur eu
-                  porta turpis. Aliquam erat volutpat. Nulla purus arcu, euismod in nulla ut, gravida viverra sem. Integer diam ipsum, elementum vel arcu dignissim, efficitur tempus sapien.</p>
+                <h4 class="card-title">Comments</h4>
+                
+                <% @place_comments.select{|p| p.place_id == @pid}.each do |pc| %>  
+                  <p class = "card-text">
+                  <%= pc.title %>
+                  <br>
+                  <%= pc.text %>
+                  </br>
+                  </p>
+                <% end %>
+
               </div>
             </div>
           </div>

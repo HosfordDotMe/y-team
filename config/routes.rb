@@ -15,4 +15,5 @@ Rails.application.routes.draw do
   resources :categories
   resources :place_comments
   resources :event_comments
+  resources :mailers
 end

@@ -1,5 +1,5 @@
 class UserMailersController < ApplicationController
-
+puts "asdasdasdasdasddasdas"
 def create
     # @event_comment.event_id = params[:event_id]
     # user_id = session[:user_id]

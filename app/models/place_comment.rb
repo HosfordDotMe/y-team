@@ -1,4 +1,4 @@
 class PlaceComment < ApplicationRecord
-  belongs_to :user
-  belongs_to :places
+  belongs_to :user, optional: true
+  belongs_to :place, optional: true
 end

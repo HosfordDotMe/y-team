@@ -1,28 +1,29 @@
-<div class="card">
-  <div class="card-body">
-<%= form_with scope: :profile, url: profile_path, local: true do |form| %>
-  <input name="_method" type="hidden" value="patch" />
-  <p>
-    <%= form.label :first_name %><br>
-    <%= form.text_field :first_name %>
-  </p>
-
-  <p>
-    <%= form.label :last_name %><br>
-    <%= form.text_field :last_name%>
-  </p>
-  <p>
-    <%= form.label :location %><br>
-    <%= form.text_field :location %>
-  </p>
-  <p>
-    <%= form.label :image_uri %><br>
-    <%= form.text_field :image_uri %>
-  </p>
-  <img src="<%= @profile.image_uri %>" alt="">
-  <p>
-    <%= form.submit %>
-  </p>
-<% end %>
-</div>
-</div>
+  <div class="container">
+    <div class="card text-center">
+      <div class="card-header card-header-primary">
+        <h1 class="text-center"><%= User.find(@profile.user_id).uname %>'s Profile</h1>
+      </div>
+      <div class="card-body">
+        <%= form_with scope: :profile, url: profile_path, local: true do |form| %>
+          <input name="_method" type="hidden" value="patch"/>
+          <div>
+            <img src="<%= @profile.image_uri %>" class="img-circle" style="width:30%; height:30%;">
+          </div>
+          <div class="input-group mb-3">
+            <%= form.text_field :first_name, class: 'form-control', placeholder: "First Name", 'aria-label': :name, 'aria-describedby': 'basic-addon2' %>
+          </div>
+          <div class="input-group mb-3">
+            <%= form.text_field :last_name, class: 'form-control', placeholder: "Last Name", 'aria-label': :name, 'aria-describedby': 'basic-addon2' %>
+          </div>
+          <div class="input-group mb-3">
+            <%= form.text_field :location, class: 'form-control', placeholder: "Location", 'aria-label': :name, 'aria-describedby': 'basic-addon2' %>
+          </div>
+          <div class="input-group mb-3">
+            <%= form.text_field :image_uri, class: 'form-control', placeholder: "Image URL", 'aria-label': :name, 'aria-describedby': 'basic-addon2'%>
+          </div>
+          <div>
+            <%= form.submit :"Submit", class:"btn btn-secondary" %>
+          </div>
+        <% end %>
+      </div>
+    </div>

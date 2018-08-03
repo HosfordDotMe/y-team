@@ -1,32 +1,34 @@
 <div class="container">
-  <div class="row">
-    <div class ="col-md-4 mb-3">
-      <div class="card">
-        <div class="card-body">
-          <h4 class="card-title">List of nearby restaurants</h4>
-          <% @places_restaurants.each do |place| %>
-            <li><%= place %></li>
-          <% end %>
+  <div class="card" style="padding-left: 15px; padding-right: 15px;">
+    <div class="row">
+      <div class="col-md-4 mb-3 mt-3">
+        <div class="card">
+          <div class="card-body">
+            <h4 class="card-title text-center" Style="font-weight: bold;">List of nearby restaurants</h4>
+            <% @places_restaurants.each do |place| %>
+              <li><%= place %></li>
+            <% end %>
+          </div>
         </div>
       </div>
-    </div>
-    <div class ="col-md-4 mb-3">
-      <div class="card">
-        <div class="card-body">
-          <h4 class="card-title">List of nearby convenience stores</h4>
-          <% @places_convenience.each do |place| %>
-            <li><%= place %></li>
-          <% end %>
+      <div class="col-md-4 mb-3 mt-3">
+        <div class="card">
+          <div class="card-body">
+            <h4 class="card-title text-center" Style="font-weight: bold;">List of nearby convenience stores</h4>
+            <% @places_convenience.each do |place| %>
+              <li><%= place %></li>
+            <% end %>
+          </div>
         </div>
       </div>
-    </div>
-    <div class ="col-md-4 mb-3">
-      <div class="card">
-        <div class="card-body">
-          <h4 class="card-title">List of nearby bars</h4>
-          <% @places_bars.each do |place| %>
-            <li><%= place %></li>
-          <% end %>
+      <div class="col-md-4 mb-3 mt-3">
+        <div class="card">
+          <div class="card-body">
+            <h4 class="card-title text-center" Style="font-weight: bold;">List of nearby bars</h4>
+            <% @places_bars.each do |place| %>
+              <li><%= place %></li>
+            <% end %>
+          </div>
         </div>
       </div>
     </div>

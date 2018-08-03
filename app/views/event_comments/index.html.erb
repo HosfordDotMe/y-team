@@ -1,0 +1,10 @@
+<h1>EventComments#Index</h1>
+<p>Find me in app/views/event_comments/Index.html.erb</p>
+<% if @event_comments %>
+  <% @event_comments.each do |event_comment| %>
+    <p><%= event_comment.title %></p>
+  <% end %>
+<% else %>
+    <p>No Comments Yet</p>
+    <p><%= link_to "Comment", new_event_comment_path %>
+<% end %>

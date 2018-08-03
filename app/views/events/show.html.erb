@@ -1,59 +1,102 @@
-<div class = "container">
-<div class="card">
-  <div class="card-body">
-
 <div class="container">
-  <div class="row">
-    <div class ="col-md-6 mb-3">
-      <div class ="card bg-dark text-white m-0">
-        <img class= "card-img">
-          <img style="height:50vh;"  src="<%= Place.find(@event.place_id).image_uri %>" alt="<%= Place.find(@event.place_id).image_uri %>">
-          <div class="card-img-overlay">
-            <h4 class="card-title"><%=Place.find(@event.place_id).name %></h4>
+  <div class="card">
+    <div class="card-body">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-6 mb-3">
+            <div class="card bg-dark text-white m-0">
+              <img class="card-img">
+              <img style="height:50vh;" src="<%= Place.find(@event.place_id).image_uri %>" alt="<%= Place.find(@event.place_id).image_uri %>">
+              <div class="card-img-overlay">
+                <h4 class="card-title">
+                  <%=Place.find(@event.place_id).name %>
+                </h4>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6 mb-3">
+            <div class="card bg-dark text-white m-0">
+              <div id='map' class="places_map" data-place="<%= (Place.find(@event.place_id)).to_json %>" style="height:50vh;">
+                <script src="https://maps.googleapis.com/maps/api/js?key=<%= Rails.application.credentials.gmaps_api_key %>&callback=initMap"
+                  type="text/javascript"></script>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
-    </div>
-    <div class ="col-md-6 mb-3">
-      <div id='map' class="places_map" data-place="<%= (Place.find(@event.place_id)).to_json %>" style="height:50vh;">
-        <script src="https://maps.googleapis.com/maps/api/js?key=<%= Rails.application.credentials.gmaps_api_key %>&callback=initMap" type="text/javascript"></script>
+      <div class="container">
+        <div class="row">
+          <div class="col-md-6 mb-3">
+            <div class="card-body">
+              <h4 class="card-title">
+                <strong><%= @event.name %> @ <%= link_to Place.find(@event.place_id).name, place_path(@event.place_id) %> </strong> - <%= @category.name %>
+                <i class="material-icons align-left">notifications</i>
+              </h4>
+              <h6 class="text-right">Added by <%=User.find(@event.user_id).uname %></h6>
+              <hr>
+              <p class="card-text">
+                <%= @event.description %>
+              </p>
+              <br>
+              <h6 class="card-subtitle mb-0 text-muted">Start Time</h6>
+              <p class="card-text">
+                <%=@event.start_time.strftime("%B %e, %Y at %I:%M %p") %>
+              </p>
+              <h6 class="card-subtitle mb-0 text-muted">End Time</h6>
+              <p class="card-text">
+                <%=@event.end_time.strftime("%B %e, %Y at %I:%M %p") %>
+              </p>
+            </div>
+          </div>
+          <div class="col-md-6 mb-3">
+            <div class="card-body">
+              <h4 class="card-title"><strong>Comments</strong></h4>
+              <hr>
+              <% @event_comments.select{|e| e.event_id == @event.id}.each do |ec| %>
+              <div class="media">
+                <img class="align-self-start mr-3 img-circle img-fluid comment" src="<%= @profiles.find_by(user_id: ec.user_id).image_uri %>" alt="<%= @users.find_by(id:ec.user_id) %>">
+                <div class="media-body">
+                  <h5 class="mt-0 lead"><%= ec.title %></h5>
+                  <p><%= ec.text %></p>
+                </div>
+              </div>
+              <% end %>
+              <button type="button" class="btn btn-outline-primary" data-toggle="modal" data-target="#commentModal">
+                Add a Comment
+              </button>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </div>
 </div>
 
-<div class="container">
-  <div class="row">
-    <div class ="col-md-12 mb-3" style="background-color:white; height:5vh;">
-    </div>
-  </div>
-</div>
-
-<div class="container">
-  <div class="row">
-    <div class ="col-md-6 mb-3">
-        <div class="card-body">
-          <h4 class="card-title"><%=@event.name %></p></h4>
-          <h6 class="card-subtitle mb-2 text-muted">Description</h6>
-          <p class="card-text"><%=@event.description %></p>
-          <h6 class="card-subtitle mb-2 text-muted">Start Time</h6>
-          <p class="card-text"><%=@event.start_time %></p>
-          <h6 class="card-subtitle mb-2 text-muted">End Time</h6>
-          <p class="card-text"><%=@event.end_time %></p>
-          <a href="#0" class="card-link">Card link</a>
-          <a href="#0" class="card-link">Another link</a>
-        </div>
+<!-- Modal -->
+<div class="modal fade" id="commentModal" tabindex="-1" role="dialog" aria-labelledby="commentModalTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="commentModalTitle">Add a Comment</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
       </div>
-    <div class ="col-md-6 mb-3">
-        <div class="card-body">
-          <h4 class="card-title">Review</h4>
-          <h6 class="card-subtitle mb-2 text-muted">Comments</h6>
-          <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam orci est, efficitur ac elementum nec, dapibus nec nunc. Integer vitae tincidunt ligula. Nunc dignissim vehicula diam, euismod aliquet erat eleifend ac. Curabitur eu porta turpis. Aliquam erat volutpat. Nulla purus arcu, euismod in nulla ut, gravida viverra sem. Integer diam ipsum, elementum vel arcu dignissim, efficitur tempus sapien.</p>
-          <a href="#0" class="card-link">Card link</a>
-          <a href="#0" class="card-link">Another link</a>
-        </div>
+      <div class="modal-body">
+        <%= form_for @event_comment do |form| %>
+          <%= hidden_field_tag :event_id, @event.id %>
+            <div class="input-group mb-3">
+              <%= form.text_field :title, class: 'form-control', placeholder: :title, 'aria-label': :title, 'aria-describedby': 'basic-addon2', required: true %>
+            </div>
+            <div class="input-group mb-3">
+              <%= form.text_area :text, class: 'form-control', placeholder: 'Comment', 'aria-label': :text, 'aria-describedby': 'basic-addon2', required: true %>
+            </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <%= form.submit :submit, class:"btn btn-secondary" %>
+          <% end %>
       </div>
     </div>
   </div>
-
-</div>
 </div>

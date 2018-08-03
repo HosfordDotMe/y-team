@@ -1,0 +1,10 @@
+<h1>PlaceComments#Index</h1>
+<p>Find me in app/views/place_comments/Index.html.erb</p>
+<% if @place_comments %>
+  <% @place_comments.each do |place_comment| %>
+    <p><%= place_comment.title %></p>
+  <% end %>
+<% else %>
+    <p>No Comments Yet</p>
+    <p><%= link_to "Comment", new_place_comment_path %>
+<% end %>

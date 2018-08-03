@@ -1,35 +1,55 @@
 <!DOCTYPE html>
 <html>
-
-  <head>
-    <title>YTeam</title>
-    <meta content="initial-scale=1, width=device-width" name="viewport">
-    <%= csrf_meta_tags %>
-    <%= csp_meta_tag %>
-    <%= stylesheet_link_tag 'application', media: 'all' %>
-    <%= javascript_include_tag 'application' %>
-  </head>
-
   <body>
-    <nav class="navbar navbar-expand-lg bg-info">
-      <div class="container">
+    <head>
+      <title>GNV-Xplorer</title>
+      <meta content="initial-scale=1, width=device-width" name="viewport">
+      <%= csrf_meta_tags %>
+      <%= csp_meta_tag %>
+      <%= stylesheet_link_tag 'application', media: 'all' %>
+      <%= javascript_include_tag 'application' %>
+      <%= favicon_link_tag asset_path('y.png'), :rel => 'icon', :type =>  'image/png' %>
+
+    </head>
+  <div class="sticky-top">
+    <header>
+      <nav class="navbar navbar-expand-md bg-info">
         <%=link_to image_tag("GNV_new.png"), root_path, { :class=>"navbar-brand" } %>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
           <span class="sr-only">Toggle navigation</span>
           <span class="navbar-toggler-icon"></span>
         </button>
 
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav mr-auto">
+            <% if current_user %>
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  Places
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                  <%= link_to "Places", places_path, { :class=>"dropdown-item"} %>
+                  <%= link_to "Add Place", new_place_path, { :class=>"dropdown-item"} %>
+                </div>
+              </li>
 
-            <li class="nav-item">
-              <%=link_to "Places", places_path, { :class=>"nav-link"} %>
-            </li>
-
-            <li class="nav-item">
-              <%=link_to "Events", events_path, { :class=>"nav-link"} %>
-            </li>
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  Events
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                  <%= link_to "Events", events_path, { :class=>"dropdown-item"} %>
+                  <%= link_to "Add Event", new_event_path, { :class=>"dropdown-item"} %>
+                </div>
+              </li>
+            <% else %>
+              <li class="nav-item">
+                <%= link_to "Places", places_path, { :class=>"nav-link"} %>
+              </li>
+              <li class="nav-item">
+                <%= link_to "Events", events_path, { :class=>"nav-link"} %>
+              </li>
+            <% end %>
 
             <li class="nav-item">
               <%=link_to "Near Me", nearmes_path, { :class=>"nav-link"} %>
@@ -43,7 +63,9 @@
 
           <form class="form-inline my-2 my-lg-0">
             <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-            <button class="btn btn-outline my-0 my-sm-0" type="submit"><i class="material-icons">search</i></button>
+            <button class="btn btn-outline my-0 my-sm-0 text-muted" type="submit">
+              <i class="material-icons">search</i>
+            </button>
           </form>
           <ul class="navbar-nav nav justify-content-end">
             <% if current_user %>
@@ -51,16 +73,16 @@
                 <%= link_to current_user.uname, profiles_path, { :class=>"nav-link"} %>
               </li>
             <% else %>
-            <li class="nav-item">
-              <%=link_to "Login/Signup", sessions_path, { :class=>"nav-link"} %>
-            </li>
+              <li class="nav-item">
+                <%=link_to "Login/Signup", sessions_path, { :class=>"nav-link"} %>
+              </li>
             <% end %>
           </ul>
         </div>
-      </div>
-    </nav>
+      </nav>
+    </div>
+    </header>
 
-    <!-- Wrong Sign in information -->
     <% flash.each do |type, message| %>
       <div class="alert alert-<%= type %>">
         <%= message %>
@@ -73,40 +95,17 @@
 
     <footer class="footer">
       <div class="container">
-  <!--      <nav class="float-left">
-          <ul class="nav">
-            <li class="nav-item">
-              <a href="http://www.cityofgainesville.org/">
-                City of Gainesville
-              </a>
-            </li>
-            <li class="nav-item">
-              <a href="http://www.alachuacounty.us/Pages/AlachuaCounty.aspx">
-                Alachua County
-              </a>
-            </li>
-            <li class="nav-item">
-              <a href="http://www.ufl.edu/">
-                University of Florida
-              </a>
-            </li>
-            <li class="nav-item">
-              <a href="http://www.sfcollege.edu/">
-                Santa Fe College
-              </a>
-            </li>
-          </ul>
-        </nav>
-  -->
         <div class="copyright float-right">
           &copy;
           <script>
             document.write(new Date().getFullYear())
           </script>, made with
-          <i class="material-icons">favorite</i> by
+          <i class="material-icons">favorite</i>
+          by
           <a href="https://github.com/hosforddotme/y-team" target="_blank">Y Team</a>.
         </div>
       </div>
     </footer>
+
   </body>
 </html>

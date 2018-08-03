@@ -1,21 +1,20 @@
-<div class="container">
-  <div class="card text-center">
-    <div class="card-header card-header-primary">
-      <h1 class="text-center">All Places</h1>
-      <h3 class ="text-center"><a href = "places/new" class="button">Add a new place!</a></h3>
-    </div>
-    <div class="card-body">
-      <ul class="list-unstyled">
-        <% @places.each do |place| %>
-          <li class="media">
-            <img class="mr-3" src="<%= place.image_uri %>" alt="<%= place.name %>">
-            <div class="media-body">
-              <h5 class="mt-0 mb-1"><%= link_to place.name, place_path(place) %></h5>
-              <%=place.description%>
-            </div>
-          </li>
-        <% end %>
-      </ul>
+  <div class="container">
+    <div class="card text-center">
+      <div class="card-header card-header-primary">
+        <h1 class="text-center">All Places</h1>
+      </div>
+      <div class="card-body">
+        <ul class="list-unstyled">
+          <% @places.each do |place| %>
+            <li class="media">
+              <a href="<%=place_path(place)%>"><img class="mr-3 rounded" src="<%= place.image_uri %>" alt="<%= place.name %>"></a>
+              <div class="media-body">
+                <h5 class="mt-0 mb-1 text-left"><%= link_to place.name, place_path(place) %> - <%=place.address%> </h5>
+                <p class="text-left"><%=place.description%></p>
+              </div>
+            </li>
+          <% end %>
+        </ul>
+      </div>
     </div>
   </div>
-</div>

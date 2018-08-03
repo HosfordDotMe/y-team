@@ -1,27 +1,27 @@
-<div class="container">
-  <div class="card text-center">
-    <div class="card-header card-header-primary">
-      <h1 class="text-center">Login Page</h1>
-    </div>
-    <div class="card-body">
-<%= form_with scope: :session, url: sessions_path, local: true do |form| %>
-  
-  <div class="input-group mb-3"> 
-    <%= form.text_field :uname, class: 'form-control', placeholder: "Username", 'aria-label': :name, 'aria-describedby': 'basic-addon2', required: true %>
+  <div class="container">
+    <div class="card text-center">
+      <div class="card-header card-header-primary">
+        <h1 class="text-center">Login Page</h1>
+      </div>
+      <div class="card-body">
+        <%= form_with scope: :session, url: sessions_path, local: true do |form| %>
+
+        <div class="input-group mb-3">
+          <%= form.text_field :uname, class: 'form-control', placeholder: "Username", 'aria-label': :name, 'aria-describedby': 'basic-addon2', required: true %>
+        </div>
+
+        <div class="input-group mb-3">
+          <%= form.password_field :password, class: 'form-control', placeholder: "Password", 'aria-label': :name, 'aria-describedby': 'basic-addon2', required: true %>
+        </div>
+
+        <div>
+          <%= form.submit :Login, class:"btn btn-secondary" %>
+        </div>
+
+      <% end %>
+    </br>
+    <%=link_to "Sign up here if you are not an existing user", new_user_path %>
+
   </div>
-  
-  <div class="input-group mb-3"> 
-  <%= form.text_field :password, class: 'form-control', placeholder: "Password", 'aria-label': :name, 'aria-describedby': 'basic-addon2', required: true %>
 </div>
-
-<div>  
-  <%= form.submit :Login, class:"btn btn-secondary" %>
-</div>
-
-<% end %>
-</br>
-<%=link_to "Sign up here if you are not an existing user", new_user_path %>
-
-    </div>
-  </div>
 </div>

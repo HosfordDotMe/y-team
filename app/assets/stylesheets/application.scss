@@ -16,23 +16,216 @@
 
 @import "material";
 @import "https://fonts.googleapis.com/icon?family=Material+Icons";
-@import "/\*";
-
-// Let's organize these by expected use case
+@import "/\*"; // Let's organize these by expected use case
 // i.e. Welcome Page vs whole site etc.
 // Throw a comment in about whats going on if weird
-html,
-body {
+body,
+html {
   height: 100%;
 }
 
 body {
-  font: Montserrat, sans-serif;
   line-height: 1.8;
   color: #424242;
-  background: #dddddd;
+  background: #E2E2E2;
   display: flex;
   flex-direction: column;
+}
+
+a {
+  color: var(--info-dark);
+}
+
+h1, h4{
+  font-weight: bold;
+}
+
+h5{
+ // color: var(--info);
+  font-weight: bold;
+}
+
+a:active,
+a:focus,
+a:hover {
+  color: #2196f3;
+  text-decoration: underline;
+}
+
+.badge-secondary {
+  background-color: #2196f3;
+  color: white;
+}
+
+.nav-pills .nav-link.active {
+  color: #2196f3;
+  opacity: 1;
+}
+
+.btn .btn-secondary {
+  background-color: #2196f3;
+  color: white;
+}
+
+btn-secondary {
+  background-color: #2196f3;
+  color: white;
+}
+
+input.btn.btn-secondary{
+  background-color: #2196f3;
+  color: white;
+}
+
+
+.btn-link {
+  background-color: transparent;
+  border-radius: 0;
+  box-shadow: none;
+  color: #2196f3;
+  font-weight: 400;
+  text-decoration: none;
+  text-transform: none;
+}
+
+.btn-link:active,
+.btn-link:focus,
+.btn-link:hover {
+  color: #2196f3;
+  text-decoration: underline;
+}
+
+.btn-flat-secondary,
+.btn-flat-secondary:active,
+.btn-flat-secondary:focus,
+.btn-flat-secondary:hover,
+.btn-outline-secondary,
+.btn-outline-secondary:active,
+.btn-outline-secondary:focus,
+.btn-outline-secondary:hover {
+  color: #2196f3;
+}
+
+.form-control:focus,
+.custom-select:focus,
+.form-control-file:focus {
+  border-color: #2196f3;
+  box-shadow: inset 0 -2px 0 -1px #2196f3;
+  outline: 0;
+}
+
+select.form-control:focus[multiple],
+select.form-control:focus[size]:not([size='1']),
+textarea.form-control:focus:not([rows='1']),
+.custom-select:focus[multiple],
+.custom-select:focus[size]:not([size='1']) {
+  box-shadow: inset 2px 2px 0 -1px #2196f3, inset -2px -2px 0 -1px #2196f3;
+}
+
+.textfield-box select.form-control:focus[multiple],
+.textfield-box select.form-control:focus[size]:not([size='1']),
+.textfield-box textarea.form-control:focus:not([rows='1']),
+.textfield-box .custom-select:focus[multiple],
+.textfield-box .custom-select:focus[size]:not([size='1']) {
+  box-shadow: inset 0 -2px 0 -1px #2196f3;
+}
+
+.text-secondary {
+  color: #2196f3 !important;
+}
+
+.badge-secondary[href]:active,
+.badge-secondary[href]:focus,
+.badge-secondary[href]:hover {
+  background-color: #1976d2;
+  color: white;
+  text-decoration: none;
+}
+
+.btn-secondary.active,
+.btn-secondary:active {
+  background-color: #1976d2;
+}
+
+a.bg-secondary:active,
+a.bg-secondary:focus,
+a.bg-secondary:hover {
+  background-color: #1976d2 !important;
+}
+
+.bg-secondary-dark {
+  background-color: #1976d2 !important;
+}
+
+a.text-secondary:active,
+a.text-secondary:focus,
+a.text-secondary:hover {
+  color: #1976d2 !important;
+}
+
+.badge-primary {
+  background-color: #2196f3;
+  color: white;
+}
+
+.btn-primary {
+  background-color: #2196f3;
+  color: white;
+}
+
+.btn-flat-primary,
+.btn-flat-primary:active,
+.btn-flat-primary:focus,
+.btn-flat-primary:hover,
+.btn-outline-primary,
+.btn-outline-primary:active,
+.btn-outline-primary:focus,
+.btn-outline-primary:hover {
+  color: #2196f3;
+}
+
+.modal-footer .btn-primary,
+.modal-footer .btn-primary:active,
+.modal-footer .btn-primary:focus,
+.modal-footer .btn-primary:hover {
+  color: #2196f3;
+}
+
+.badge-primary[href]:active,
+.badge-primary[href]:focus,
+.badge-primary[href]:hover {
+  background-color: #1976d2;
+  color: white;
+  text-decoration: none;
+}
+
+.btn-primary.active,
+.btn-primary:active {
+  background-color: #1976d2;
+}
+
+a.bg-primary:active,
+a.bg-primary:focus,
+a.bg-primary:hover {
+  background-color: #1976d2 !important;
+}
+
+.bg-primary-dark {
+  background-color: #1976d2 !important;
+}
+
+a.text-primary:active,
+a.text-primary:focus,
+a.text-primary:hover {
+  color: #1976d2 !important;
+}
+
+.modal-footer .btn-secondary, .modal-footer .btn-secondary:active, .modal-footer .btn-secondary:focus, .modal-footer .btn-secondary:hover {
+  color: #2196f3;
+}
+
+.submit {
+  color: var(--info);
 }
 
 .content {
@@ -40,24 +233,26 @@ body {
 }
 
 .footer {
-  flex-shrink: 0;
+  flex-shrink: 0; // position: relative;
+  // top: 120px;
+  // left: 0;
+  // bottom: 0;
+  // width: 100%;
+  // //text-align: center;
+  // margin: 20px 0;
 }
 
 .navbar {
   margin-bottom: 20px;
+  padding: 0.625rem 3rem;
 }
 
 .nav-item {
   color: #FFFFFF;
-
 }
 
 .navbar-brand img {
   width: 80px;
-}
-
-.footer {
-  margin: 20px 0 20px;
 }
 
 // can prob be removed and use container class
@@ -66,10 +261,65 @@ body {
   margin: auto;
 }
 
+.card-bg {
+  border-radius: 2px;
+  background-color: #E2E2E2;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  min-width: 0;
+  position: relative;
+  word-wrap: break-word;
+  height: 100%;
+}
+
+//card with no dropshadow
+.card-flat {
+  border-radius: 2px;
+  background-color: #ffffff;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  min-width: 0;
+  position: relative;
+  word-wrap: break-word;
+}
+
+.card-map {
+  border-radius: 2px;
+  background-color: #ffffff;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  min-width: 0;
+  word-wrap: break-word;
+  width: 100%;
+}
+
+//card with hover shadow
+.card-hover {
+  border-radius: 2px;
+  background-color: #ffffff;
+  &:hover {
+    box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.14), 0 3px 4px 0 rgba(0, 0, 0, 0.12), 0 1px 5px 0 rgba(0, 0, 0, 0.2);
+  }
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  min-width: 0;
+  position: relative;
+  word-wrap: break-word;
+}
+
 // places index
 .media {
   padding: 10px;
 }
+
 .media img {
   max-width: 200px;
 }
@@ -77,18 +327,66 @@ body {
 // Welcome
 .carousel {
   overflow: hidden;
-  margin-bottom: 20px;
+  margin-bottom: 50px;
 }
 
-.carousel-item img{
-    object-fit: cover;
-    height: 500px;
+.carousel-item img {
+  object-fit: cover;
+  height: 400px;
+  width: 300px;
 }
-.img-circle {
-    border-radius: 50%;
+
+.carousel-caption {
+  text-shadow: 2px 2px #000000;
+}
+
+.carousel-caption-2 {
+  color: white;
+  position: absolute;
+  right: 25%;
+  left: 25%;
+  text-align: center;
+  z-index: 1;
+  font-weight: bold;
 }
 
 .logo-head {
   height: 100px;
   width: 100px;
+}
+
+.front-logo{
+    width: 100px;
+    z-index: 1;
+}
+
+.container {
+  margin-bottom: 20px;
+}
+
+.link_to {
+  color: var(--info-dark);
+}
+
+.dropdown-toggle::after {
+  display: none;
+}
+
+img {
+max-width: 100%;
+}
+.media img {
+    max-width: 200px;
+}
+
+.img-circle {
+  border-radius: 50%;
+}
+
+.card-img-overlay{
+right: unset;
+bottom: unset;
+left: unset;
+text-shadow: 2px 2px #000000;
+
 }

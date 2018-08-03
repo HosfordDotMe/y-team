@@ -1,0 +1,10 @@
+      <%= form_for place_comment do |form| %>
+        <div class="input-group mb-3"> 
+          <%= form.text_field :title, class: 'form-control', placeholder: :title, 'aria-label': :title, 'aria-describedby': 'basic-addon2', required: true %>
+        </div>
+        <div class="input-group mb-3"> 
+          <%= form.text_area :text, class: 'form-control', placeholder: :text, 'aria-label': :text, 'aria-describedby': 'basic-addon2', required: true %>
+        </div>
+          <%= form.submit :submit, class:"btn btn-secondary" %>
+        </div>
+      <% end %>

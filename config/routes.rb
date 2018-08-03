@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  get 'event_comments/Index'
+  get 'event_comments/New'
+  get 'event_comments/Show'
+  get 'place_comments/Index'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   root 'welcome#index'
   resources :places
@@ -9,4 +13,7 @@ Rails.application.routes.draw do
   resources :profiles
   resources :nearmelists
   resources :categories
+  resources :place_comments
+  resources :event_comments
+  resources :mailers
 end

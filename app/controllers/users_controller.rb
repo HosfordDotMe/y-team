@@ -18,8 +18,8 @@ class UsersController < ApplicationController
     profile.user_id = @user.id
     profile.save
 
-    UserMailer.welcome_email(@user).deliver_later(wait: 2.minutes)
-    redirect_to(@user, :notice => 'User created')
+    #UserMailer.welcome_email(@user).deliver_later(wait: 2.minutes)
+    #redirect_to(@user, :notice => 'User created')
     
     # flash[:success] = "Welcome to GNV Xplorer"
     redirect_to new_place_path
